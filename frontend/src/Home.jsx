@@ -1,64 +1,45 @@
 import React, { useState } from 'react'
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 
-import Model1 from './models/Model1'
-import Model2 from './models/Model2'
-import Model3 from './models/Model3'
-import Model4 from './models/Model4'
-import Model5 from './models/Model5'
+import EDA from './pages/EDA';
+import Description from './pages/Description';
+import Models from './pages/Models';
 
-const Home = () => {
-
-    const [model, setModel] = useState(1)
-
-    const changeModel = (e) => {
-        setModel(e.target.value)
-    }
+function Home() {
+    const [page, setPage] = useState(0)
 
     return (
-        <div className='home'>
-            <div className="side">
-                <div>
-                    <h1 className='side-heading'>Upload Dataset</h1>
-                </div>
-                <div>
-                    <h1 className='side-heading'>EDA</h1>
-                </div>
-                <div>
-                    <h1 className='side-heading'>Phase 3</h1>
-                    <form className='form'>
-                        <label >
-                            <input type="radio" name="model" value="1" onChange={changeModel} defaultChecked />
-                            Model 1
-                        </label>
-                        <label>
-                            <input type="radio" name="model" value="2" onChange={changeModel} />
-                            Model 2
-                        </label>
-                        <label>
-                            <input type="radio" name="model" value="3" onChange={changeModel} />
-                            Model 3
-                        </label>
-                        <label>
-                            <input type="radio" name="model" value="4" onChange={changeModel} />
-                            Model 4
-                        </label>
-                        <label>
-                            <input type="radio" name="model" value="5" onChange={changeModel} />
-                            Model 5
-                        </label>
-                    </form>
-                </div>
-            </div>
+        <div >
+            <AppBar position="static" style={{ backgroundColor: '#173E5E' }}>
+                <Toolbar>
+                    <IconButton
+                        size="large"
+                        edge="start"
+                        color="inherit"
+                        aria-label="menu"
+                        sx={{ mr: 2 }}
+                    >
+                    </IconButton>
+                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                        Analysis of LA Crime Dataset
+                    </Typography>
+                    <Button onClick={() => { setPage(0) }} color="inherit">Description</Button>
+                    <Button onClick={() => { setPage(1) }} color="inherit">EDA</Button>
+                    <Button onClick={() => { setPage(2) }} color="inherit">Models</Button>
+                </Toolbar>
+            </AppBar>
 
-            <div className="main">
+            <div className='content'>
                 {
                     {
-                        '1': <Model1 />,
-                        '2': <Model2 />,
-                        '3': <Model3 />,
-                        '4': <Model4 />,
-                        '5': <Model5 />,
-                    }[model]
+                        0: <Description />,
+                        1: <EDA />,
+                        2: <Models />
+                    }[page]
                 }
             </div>
         </div>

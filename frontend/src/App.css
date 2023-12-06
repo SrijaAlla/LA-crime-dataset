@@ -6,17 +6,18 @@
 }
 
 .side {
-  width: 30%;
-  min-width: 200px;
+  width: 25%;
+  min-width: 25%;
   height: 100%;
-  background-color: #173E5E;
+  background-color: #173e5e;
+  /* background-color: #2a4384; */
 
   padding: 50px 25px;
 
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .side-heading {
@@ -36,6 +37,40 @@
   font-size: 20px;
 }
 
+.form.model label {
+  padding: 0;
+  margin: 10px 0;
+  flex-direction: column;
+  color: #333;
+  font-weight: 200;
+}
+
+.label-text {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+
+}
+
+input[type=text],
+input[type=select],
+input[type=number],
+select,
+button.submit {
+  width: 50%;
+  height: 35px;
+  font-size: 18px;
+  padding: 2px 10px;
+  margin: 5px 0;
+  border-radius: 4px;
+  border: 2px solid #333;
+}
+
+button.submit {
+  cursor: pointer;
+  background-color: #56f0ba;
+}
+
 input[type='radio'] {
   /* font-size: 20px; */
   height: 15px;
@@ -44,16 +79,23 @@ input[type='radio'] {
 }
 
 .main {
-  /* width: 70%; */
+  width: 75%;
   height: 100%;
-  padding: 100px;
+  padding: 50px 100px;
 }
 
 .main-heading {
   font-weight: 900;
   font-size: 50px;
   letter-spacing: 2px;
+  /* color: #173E5E; */
   color: white;
   text-shadow: -1px 1px 0 #333, 1px 1px 0 #333, 1px -1px 0 #333, -1px -1px 0 #333;
   margin-bottom: 20px;
+}
+
+.model-desc {
+  font-weight: 200;
+  color: #333;
+  font-size: 20px;
 }
