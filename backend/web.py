@@ -5,11 +5,14 @@ from flask_cors import CORS  # Import CORS from flask_cors
 from sklearn.decomposition import PCA
 import sklearn
 import numpy as np
+import os
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
 print("The scikit-learn version is {}.".format(sklearn.__version__))
+
+curr_dir = os.path.abspath(os.getcwd())
 
 if sklearn.__version__ != "1.3.2":
     print("PLEASE UPGRADE scikit-learn VERSION TO 1.3.2 TO RUN THE CODE!!")
@@ -145,7 +148,7 @@ def decision():
 @app.route("/predict", methods=["POST"])
 def predict():
     # Load trained model
-    model_file = "logistic_regression.sav"
+    model_file = curr_dir + "/logistic_regression.sav"
     loaded_model = pickle.load(open(model_file, "rb"))
 
     # Get data from request
