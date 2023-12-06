@@ -78,7 +78,7 @@ const Model5 = () => {
                 <select
                   id={field.id}
                   disabled={!field.options.length}
-                  placeholder="rohan"
+                  placeholder="random"
                   required
                   // value={breed}
                   onChange={(e) => handle(e)}
