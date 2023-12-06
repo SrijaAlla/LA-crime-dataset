@@ -41,8 +41,8 @@ def naiveBayes():
     categorical_features = []
     numerical = []
 
-    numerical.append(data["hour"])
-    numerical.append(data["Vict Age"])
+    numerical.append(int(data['hour']))
+    numerical.append(int(data['Vict Age']))
     numerical = np.array(numerical).reshape(1, -1)
 
     categorical_features = [
@@ -61,9 +61,9 @@ def naiveBayes():
 
     y_pred = (g_pred + mnb_pred) / 2
     y_pred = np.argmax(y_pred)
-    output = {"crime_risk": int(y_pred)}
+    prediction = {"prediction": int(y_pred)}
 
-    return jsonify(output)
+    return jsonify(prediction)
 
 #input Format = {'hour':12,"month","LAT":34.1, "LON":34.2,"Rpt Dist No": 12,"Part 1-2": 1, "Vict Age": 12}
 @app.route("/randomforest", methods=["POST"])
@@ -91,7 +91,7 @@ def randomforest():
     prediction = model.predict(features)[0]
 
     # Model Prediction
-    output = {"vehicular": int(prediction)}
+    output = {"prediction": int(prediction)}
 
     return jsonify(output)
 
@@ -103,17 +103,24 @@ def knn():
     with open("knn.sav", "rb") as f:
         knn = pickle.load(f)
     data = request.get_json()
-    feature_columns = ["AREA", "hour", "Vict Age", "Premis Cd", "Weapon Used Cd"]
+    print(data)
+    data["AREA"] = int(data['AREA'])
+    data["Vict Age"] = int(data["Vict Age"])
+    data["Weapon Used Cd"] = int(data["Weapon Used Cd"])
+    data["Premis Cd"] = int(data["Premis Cd"])
+    data["hour"] = int(data["hour"])
+    feature_columns = ['AREA', 'hour', 'Vict Age', 'Premis Cd', 'Weapon Used Cd']
 
     features = [data[f] for f in feature_columns]
 
     features = np.array(features).reshape(1, -1)
     prediction = knn.predict(features)[0]
-    output = {"crime_type": int(prediction)}
+    prediction = {"prediction": int(prediction)}
 
-    return jsonify(output)
+    return jsonify(prediction)
 
-#input format = {"Premis Cd":2, "Crm Cd", "Weapon Used Cd": 12, "Rpt Dist No":3, "hour":12}
+#input format = {"Premis Cd":2, "Weapon Used Cd": 12,"Crm Cd": 12 "Rpt Dist No":3, "hour":12}
+#order is important
 @app.route("/decision", methods=["POST"])
 def decision():
     # check scikit version
@@ -123,13 +130,14 @@ def decision():
     model = "decision_tree.sav"
     model = pickle.load(open(model, "rb"))
     data = request.get_json()
+    print(data)
 
     # changing format
-    data["Premis Cd"] = [data["Premis Cd"]]
-    data["Crm Cd"] = [data["Crm Cd"]]
-    data["Weapon Used Cd"] = [data["Weapon Used Cd"]]
-    data["Rpt Dist No"] = [data["Rpt Dist No"]]
-    data["hour"] = [data["hour"]]
+    data["Premis Cd"] = [int(data["Premis Cd"])]
+    data["Weapon Used Cd"] = [int(data["Weapon Used Cd"])]
+    data["Crm Cd"] = [int(data["Crm Cd"])]
+    data["Rpt Dist No"] = [int(data["Rpt Dist No"])]
+    data["hour"] = [int(data["hour"])]
     print(data)
 
     # PCA Transformation
@@ -139,10 +147,10 @@ def decision():
     features_pca = pca.transform(data)
 
     # Model Prediction
-    pred = model.predict(features_pca)[0]
-    output = {"crime_risk": int(pred)}
+    prediction = model.predict(features_pca)[0]
+    prediction = {"prediction": int(prediction)}
 
-    return jsonify(output)
+    return jsonify(prediction)
 
 #input format = [{"AREA":1, "Vict Age":25, "Vict Sex": 1, "Weapon Used Cd": 5}]
 @app.route("/predict", methods=["POST"])
