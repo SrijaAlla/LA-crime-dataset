@@ -23,7 +23,7 @@ if sklearn.__version__ != "1.3.2":
 def index():
     return render_template()
 
-
+#input format = {"AREA":1, "Premis Cd":2, "Weapon USed Cd": 12, "Part 1-2":1, "crime_type":0, "hour":12, "Vict Age":25}
 @app.route("/naivebayes", methods=["POST"])
 def naiveBayes():
     gnb = "gnb.sav"
@@ -62,7 +62,7 @@ def naiveBayes():
 
     return jsonify(output)
 
-
+#input Format = {'hour':12,"month","LAT":34.1, "LON":34.2,"Rpt Dist No": 12,"Part 1-2": 1, "Vict Age": 12}
 @app.route("/randomforest", methods=["POST"])
 def randomforest():
     model = "randomf.sav"
@@ -94,7 +94,7 @@ def randomforest():
 
     # return jsonify()
 
-
+#input format = {"AREA": 1, "hour":12, "Vict Age", "Premis Cd"," Weapon Used Cd"}
 @app.route("/knn", methods=["POST"])
 def knn():
     with open("knn.sav", "rb") as f:
@@ -110,7 +110,7 @@ def knn():
 
     return jsonify(output)
 
-
+#input format = {"Premis Cd":2, "Crm Cd", "Weapon Used Cd": 12, "Rpt Dist No":3, "hour":12}
 @app.route("/decision", methods=["POST"])
 def decision():
     # check scikit version
@@ -141,7 +141,7 @@ def decision():
 
     return jsonify(output)
 
-
+#input format = [{"AREA":1, "Vict Age":25, "Vict Sex": 1, "Weapon Used Cd": 5}]
 @app.route("/predict", methods=["POST"])
 def predict():
     # Load trained model
