@@ -1,0 +1,59 @@
+.home {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+}
+
+.side {
+  width: 30%;
+  min-width: 200px;
+  height: 100%;
+  background-color: #173E5E;
+
+  padding: 50px 25px;
+
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-between;
+}
+
+.side-heading {
+  font-weight: 200;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  padding: 10px 0;
+  color: white;
+  font-size: 20px;
+}
+
+input[type='radio'] {
+  /* font-size: 20px; */
+  height: 15px;
+  width: 15px;
+  margin-right: 5px;
+}
+
+.main {
+  /* width: 70%; */
+  height: 100%;
+  padding: 100px;
+}
+
+.main-heading {
+  font-weight: 900;
+  font-size: 50px;
+  letter-spacing: 2px;
+  color: white;
+  text-shadow: -1px 1px 0 #333, 1px 1px 0 #333, 1px -1px 0 #333, -1px -1px 0 #333;
+  margin-bottom: 20px;
+}
