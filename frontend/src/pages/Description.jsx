@@ -26,73 +26,106 @@ function Description() {
         <div>
           <ul>
             <li>
-              DR_NO: Division of Records Number: Official file number made up of
-              a 2-digit year, area ID, and 5-digit
+              <b>DR_NO:</b> Division of Records Number: Official file number
+              made up of a 2-digit year, area ID, and 5-digit
             </li>
             <li>
-              Date Rptd: This column likely represents the date when the crime
-              was reported to authorities in the format MM/DD/YYYY
+              <b>Date Rptd:</b> This column likely represents the date when the
+              crime was reported to authorities in the format MM/DD/YYYY
             </li>
             <li>
-              DATE OCC: This column likely represents the date when the crime
-              actually occurred in the format MM/DD/YYYY.
+              <b> DATE OCC:</b> This column likely represents the date when the
+              crime actually occurred in the format MM/DD/YYYY.
             </li>
             <li>
-              TIME OCC: This column represents the time at which the crime
-              occurred in military time.
+              <b>TIME OCC:</b> This column represents the time at which the
+              crime occurred in military time.
             </li>
 
             <li>
-              AREA NAME: The 21 Geographic Areas or Patrol Divisions are also
-              given a name designation that references a landmark or the
+              <b>AREA NAME:</b> The 21 Geographic Areas or Patrol Divisions are
+              also given a name designation that references a landmark or the
               surrounding community that it is responsible for. For example,
               77th Street Division is located at the intersection of South
               Broadway and 77th Street, serving neighborhoods in South Los
               Angeles.
             </li>
             <li>
-              Rpt Dist No: This column contains a report district number
+              <b>Rpt Dist No:</b> This column contains a report district number
               associated with the crime. A four-digit code that represents a
               sub-area within a Geographic Area. All crime records reference the
-              "RD" that it occurred in for statistical comparisons. Find LAPD
-              Reporting Districts on the LA City GeoHub at
-              <div>
-                {" "}
-                <a>
-                  href=
-                  http://geohub.lacity.org/datasets/c4f83909b81d4786aa8ba8a74a4b4db1_4{" "}
+              "RD" that it occurred in for statistical comparisons.{" "}
+              <p>
+                Find LAPD Reporting Districts on the LA City GeoHub at{" "}
+                <a
+                  href="http://geohub.lacity.org/datasets/c4f83909b81d4786aa8ba8a74a4b4db1_4"
+                  target="_blank"
+                >
+                  http://geohub.lacity.org/datasets/c4f83909b81d4786aa8ba8a74a4b4db1_4
                 </a>
-              </div>
+              </p>
             </li>
             <li>
-              Part 1-2: Part I Crimes Index Crimes: ▪ Part I crimes are
-              considered more serious and are often referred to as "index
-              crimes." ▪ These crimes include major violent offenses and
-              high-value property crimes. ▪ Examples of Part I crimes typically
-              include murder, rape, robbery, aggravated assault, burglary,
-              larceny-theft, and motor vehicle theft. ▪ These crimes are closely
-              tracked and reported in national crime statistics, such as the
-              Uniform Crime Reporting UCR program by the FBI. Part II Crimes
-              Non-Index Crimes: ▪ Part II crimes are considered less serious and
-              encompass a wider range of offenses. ▪ These crimes include less
-              serious property crimes, simple assaults, fraud, vandalism, and
-              other offenses that may not be as severe as Part I crimes. ▪ Part
-              II crimes are reported separately from Part I crimes in crime
-              statistics.
+              <section>
+                <h5>Part I Crimes (Index Crimes)</h5>
+                <ul>
+                  <li>
+                    Part I crimes are considered more serious and are often
+                    referred to as "index crimes."
+                  </li>
+                  <li>
+                    These crimes include major violent offenses and high-value
+                    property crimes.
+                  </li>
+                  <li>
+                    Examples of Part I crimes typically include murder, rape,
+                    robbery, aggravated assault, burglary, larceny-theft, and
+                    motor vehicle theft.
+                  </li>
+                  <li>
+                    These crimes are closely tracked and reported in national
+                    crime statistics, such as the Uniform Crime Reporting (UCR)
+                    program by the FBI.
+                  </li>
+                </ul>
+              </section>
+
+              <section>
+                <h5>Part II Crimes (Non-Index Crimes)</h5>
+                <ul>
+                  <li>
+                    Part II crimes are considered less serious and encompass a
+                    wider range of offenses.
+                  </li>
+                  <li>
+                    These crimes include less serious property crimes, simple
+                    assaults, fraud, vandalism, and other offenses that may not
+                    be as severe as Part I crimes.
+                  </li>
+                  <li>
+                    Part II crimes are reported separately from Part I crimes in
+                    crime statistics.
+                  </li>
+                </ul>
+              </section>
             </li>
             <li>
               <b>Crm Cd:</b> This column contains a numerical code indicating
               the crime committed.
             </li>
             <li>
-              <b>Crm Cd desc:</b> This column provides a textual description of
-              the crime associated with the code.
+              <b>Crm Cd 2:</b> May contain a code for an additional crime, less
+              serious than Crime Code 1.
             </li>
+            <li>
+              <b>Crm Cd desc:</b> This column provides a textual description of
+              the crime.
+            </li>
+
             <li>
               <b>Mocodes</b>: This column may contain additional codes or Modus
               Operandi: Activities associated with the suspect in commission of
-              the crime.See attached PDF for list of MO Codes in numerical
-              order.
+              the crime.
             </li>
             <li>
               <b>Vict Age:</b> This column records the age of the victim.
@@ -130,16 +163,8 @@ function Description() {
             </li>
 
             <li>
-              <b>Crm Cd 2:</b> May contain a code for an additional crime, less
-              serious than Crime Code 1. ➢ Crm Cd 3: May contain a code for an
-              additional crime, less serious than Crime Code 1. ➢ Crm Cd 4: May
-              contain a code for an additional crime, less serious than Crime
-              Code 1. ➢
-            </li>
-            <li>
               <b>LOCATION:</b> The street address of the crime incident was
-              rounded to the nearest hundred block to maintain anonymity. ➢
-              Cross Street: Cross street of rounded Address.
+              rounded to the nearest hundred block to maintain anonymity.
             </li>
             <li>
               <b>LAT: </b>This column provides the latitude coordinates of the
@@ -150,23 +175,44 @@ function Description() {
               crime location.
             </li>
           </ul>
+          <b>
+            <u>Created Columns for Analysis:</u>
+          </b>
           <div>
-            <b>Created Columns for Analysis:</b>
-            <div>
-              <ul>
-                <li>
-                  <b>Weapons:</b> This column provides descriptions of various
-                  weapons. An accompanying column 'weapon rating' assigns a
-                  severity rating from 1 to 10 for each weapon based on its
-                  perceived danger level.
-                </li>
-                <li>
-                  <b>Crimes:</b> This column gives the crime rating of a
-                  district based on the number of crimes where the intesity of
-                  the crime is rated on a scale of 1-10 manually.
-                </li>
-              </ul>
-            </div>
+            <ul>
+              <li>
+                <b>Weapons:</b> This column provides descriptions of various
+                weapons. An accompanying column 'weapon rating' assigns a
+                severity rating from 1 to 10 for each weapon based on its
+                perceived danger level.
+              </li>
+              <li>
+                <b>Crimes:</b> This column gives the crime rating of a district
+                based on the number of crimes where the intesity of the crime is
+                rated on a scale of 1-10 manually.
+              </li>
+
+              <li>
+                <b>Year:</b> This column indicates the year when the crime
+                occurred.
+              </li>
+              <li>
+                <b>Month:</b> This column indicates the month when the crime
+                occurred.
+              </li>
+              <li>
+                <b>crime_type:</b> This column specifies the type of crime which
+                is divided into violent
+              </li>
+              <li>
+                <b>Vehicular:</b>A crime is categorised as vehicular if the the
+                crime involves a vehicle
+              </li>
+              <li>
+                <b>Theft:</b>A crime is categorised as theft if the the crime
+                involves a robbery.
+              </li>
+            </ul>
           </div>
         </div>
       </div>

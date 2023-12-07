@@ -30,6 +30,7 @@
 .form {
   display: flex;
   flex-direction: column;
+  padding: 0px 0px 0px 0px;
 }
 
 .form label {
@@ -107,6 +108,7 @@ input[type="radio"] {
   display: flex;
   flex-direction: column;
   padding: 30px 50px;
+  font-family: sans-serif;
 }
 
 .sub-heading {
