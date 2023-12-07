@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <div>
-      <AppBar position="sticky" style={{ backgroundColor: "#173E5E" }}>
+      <AppBar position="sticky" style={{ backgroundColor: "#092635" }}>
         <Toolbar>
           <IconButton
             size="large"
