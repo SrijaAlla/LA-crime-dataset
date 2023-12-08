@@ -1,3 +1,5 @@
+// code for description page
+
 import React from "react";
 
 function Description() {

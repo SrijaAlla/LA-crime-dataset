@@ -1,3 +1,5 @@
+// code for EDA page
+
 import React from "react";
 import image1 from "./images/gender_pie_plot.png";
 import image2 from "./images/common_area.png";

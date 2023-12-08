@@ -1,3 +1,5 @@
+// sidebar of models page
+
 import React, { useState } from "react";
 
 import Model1 from "../models/Model1";
