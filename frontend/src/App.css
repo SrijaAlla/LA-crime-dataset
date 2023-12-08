@@ -189,6 +189,27 @@ input[type="radio"] {
   height: 100%;
 }
 
+.eda-images {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0px 20px 0px;
+}
+
+.image span {
+  align-items: center;
+  padding: 20px 0px 20px 0px;
+}
+
+/* .eda-images .image img {
+  align-items: center;
+} */
 .form-model {
   /* display: flex; */
   width: 100%;

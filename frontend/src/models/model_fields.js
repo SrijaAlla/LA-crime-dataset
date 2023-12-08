@@ -31,7 +31,7 @@ const model_fields = {
         type: 'text',
         field_desc: 'Type of Weapon used',
         id: 'weaponused',
-        label: 'Weapon Used Cd',
+        label: 'Weapon Used Code',
       },
     ],
   },
@@ -102,7 +102,7 @@ const model_fields = {
         type: 'text',
         field_desc: 'Reported District Number',
         id: 'rptdn',
-        label: 'Reported District',
+        label: 'Reported District Number',
       },
       {
         type: 'text',
@@ -145,7 +145,7 @@ const model_fields = {
         type: 'text',
         field_desc: 'Reported District Number',
         id: 'rptdn',
-        label: 'Reported District',
+        label: 'Reported District Number',
       },
       {
         type: 'text',
@@ -178,13 +178,13 @@ const model_fields = {
         field_desc:
           'A code representing the type of location where the crime occurred',
         id: 'premiscd',
-        label: 'Premis Cd',
+        label: 'Premis Code',
       },
       {
         type: 'text',
         field_desc: 'Type of Weapon used',
         id: 'weaponused',
-        label: 'Weapon Used Cd',
+        label: 'Weapon Used Code',
       },
       {
         type: 'text',
@@ -202,20 +202,20 @@ const model_fields = {
         type: 'text',
         field_desc: 'Hour at which the cirme was reported (24 hour) ',
         id: 'hour',
-        label: 'hour',
+        label: 'Hour',
       },
       {
         type: 'text',
         field_desc: 'Age of the Victim',
         id: 'victage',
-        label: 'Vict Age',
+        label: 'Victim Age',
       },
     ],
   },
   model6: {
-    name: 'K Means',
+    name: 'K Means Clustering',
     description:
-      'Naive Bayes can provide interpretable insights into situational correlates of theft crimes enabling citizens to be more alert and police to take appropriate measures post or prior to the crime. It is efficient for large datasets and works quite fast.',
+      'K-means clustering was chosen as it is a simple, intuitive, and commonly used algorithm for unsupervised learning on spatial data. The goal was to find natural groupings in the crime data based on location, without any predefined labels. K-means is ideal for this use case.',
     fields: [
       {
         type: 'text',
