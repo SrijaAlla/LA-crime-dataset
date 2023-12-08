@@ -99,19 +99,15 @@ const Model4 = () => {
             <button className="submit">Submit</button>
           </form>
           <div className="result">
-            {result ? (
-              <div>
-                The crime is predicted to be {"  "}
-                {result === 1 ? (
-                  <strong>{"Vehicular"}</strong>
-                ) : (
-                  <strong>{"Non Vehicular"}</strong>
-                )}
-              </div>
-            ) : (
-              ""
-            )}
+            <div>
+              {result === 0 ? (
+                <span>{"The crime is predicted to be Vehicular"}</span>
+              ) : (
+                <span>{"The crime is predicted to be Non Vehicular"}</span>
+              )}
+            </div>
           </div>
+          {/* <strong>{result}</strong> */}
         </div>
       </div>
     </div>

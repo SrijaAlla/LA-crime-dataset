@@ -212,6 +212,27 @@ const model_fields = {
       },
     ],
   },
+  model6: {
+    name: 'K Means',
+    description:
+      'Naive Bayes can provide interpretable insights into situational correlates of theft crimes enabling citizens to be more alert and police to take appropriate measures post or prior to the crime. It is efficient for large datasets and works quite fast.',
+    fields: [
+      {
+        type: 'text',
+        field_desc:
+          'The 21 Geographic Areas or Patrol Divisions are also given a name designation that references a landmark or the surrounding community that it is responsible for. For example, 77th Street Division is located at the intersection of South Broadway and 77th Street, serving neighborhoods in South Los Angeles.',
+        id: 'crime_intensity',
+        label: 'Crime Intensity',
+      },
+      {
+        type: 'text',
+        field_desc:
+          'A code representing the type of location where the crime occurred',
+        id: 'weapon_rating',
+        label: 'Weapon Rating',
+      },
+    ],
+  },
 }
 
 export { model_fields }

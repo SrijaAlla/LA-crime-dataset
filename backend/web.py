@@ -176,48 +176,39 @@ def predict():
     result = {"prediction": prediction}
 
     return jsonify(result)
-@app.route("/generate_plot", methods=["POST"])
-def generate_plot():
-    print('received')
-    dataset = pickle.load(open('dataset.pkl', 'rb'))
-    # Get data from the POST request
-    request_data = request.get_json()
-    print(request_data)
-    # Check if 'area' is present in the request
-    area = request_data['AREA NAME']
-    print(area)
 
-    # Filter dataset based on the provided area
-    filtered_data = dataset[dataset['AREA NAME'] == area]
 
-    # Generate separate plots for male and female counts
-    plt.figure(figsize=(10, 6))
+@app.route('/kmeans', methods=['POST'])
+def kmeans():
+    # Get input data from the request
+    data = request.get_json()
 
-    # Male count plot
-    plt.subplot(1, 2, 1)
-    filtered_data[filtered_data['Vict Sex'] == 'M']['Vict Sex'].value_counts().plot(kind='bar')
-    plt.title(f'Male Count in {area}')
-    plt.xlabel('Gender')
-    plt.ylabel('Count')
+    # Extract features from the input data
+    crime_intensity = int(data['crime_intensity'])
+    weapon_rating = int(data['weapon_rating'])
 
-    # Female count plot
-    plt.subplot(1, 2, 2)
-    filtered_data[filtered_data['Vict Sex'] == 'F']['Vict Sex'].value_counts().plot(kind='bar')
-    plt.title(f'Female Count in {area}')
-    plt.xlabel('Gender')
-    plt.ylabel('Count')
+    # Load the model
+    with open('kmeans_model.pkl', 'rb') as f:
+        model = pickle.load(f)
 
-    # Save the plot to a BytesIO object
-    image_stream = BytesIO()
-    plt.tight_layout()
-    plt.savefig(image_stream, format='png')
-    plt.close()
-    image_base64 = base64.b64encode(image_stream.getvalue()).decode('utf-8')
-    return jsonify({'image': image_base64}), 200
-    # # Return the plot as a base64-encoded string
-    # #return jsonify({'image': image_stream.getvalue().decode('base64')}), 200
-    # output = {"prediction":"repdiction"}
-    # return jsonify(output)
+    # Make prediction
+    prediction = model.predict([[crime_intensity, weapon_rating]])
+    cluster = int(prediction)
+
+    # Map cluster to details
+    cluster_details = {
+        0: "Low crime intensity",
+        1: "Medium crime rating area",
+        2: "High crime rating area"
+    }  
+
+    # Create response object   
+    response = {
+        "cluster": cluster,
+        "details": cluster_details.get(cluster, "Unknown cluster")
+    }
+
+    return jsonify(response)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

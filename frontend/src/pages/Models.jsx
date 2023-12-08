@@ -5,6 +5,7 @@ import Model2 from "../models/Model2";
 import Model3 from "../models/Model3";
 import Model4 from "../models/Model4";
 import Model5 from "../models/Model5";
+import Model6 from "../models/Model6";
 
 const Models = () => {
   const [model, setModel] = useState(1);
@@ -66,6 +67,15 @@ const Models = () => {
               />
               Naive Bayes Classification
             </label>
+            <label>
+              <input
+                type="radio"
+                name="model"
+                value="6"
+                onChange={changeModel}
+              />
+              K Means
+            </label>
           </form>
         </div>
       </div>
@@ -78,6 +88,7 @@ const Models = () => {
             3: <Model3 />,
             4: <Model4 />,
             5: <Model5 />,
+            6: <Model6 />,
           }[model]
         }
       </div>

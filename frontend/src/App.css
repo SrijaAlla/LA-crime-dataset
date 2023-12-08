@@ -95,6 +95,7 @@ input[type="radio"] {
   text-shadow: -1px 1px 0 #333, 1px 1px 0 #333, 1px -1px 0 #333,
     -1px -1px 0 #333;
   margin-bottom: 20px;
+  padding: 0px 0px 0px 30px;
 }
 
 .model-desc {
@@ -169,7 +170,6 @@ input[type="radio"] {
   font-weight: 700;
 }
 
-
 /* EDA page */
 .eda {
   display: flex;
@@ -197,4 +197,8 @@ input[type="radio"] {
 
 .form-model .result {
   padding: 20px 10px;
+}
+
+.model-content {
+  padding: 0px 0px 0px 30px;
 }

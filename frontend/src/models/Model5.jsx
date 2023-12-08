@@ -55,63 +55,61 @@ const Model5 = () => {
   return (
     <div>
       <h1 className="main-heading">{model_info.name}</h1>
+      <div className="model-content">
+        <h2 className="model-desc">{model_info.description}</h2>
 
-      <h2 className="model-desc">{model_info.description}</h2>
+        <form className="form model lr" onSubmit={(e) => submit(e)}>
+          {model_info.fields.map((field) => {
+            return (
+              <label>
+                <div className="label-text">
+                  <p>{field.label}</p>
+                  <Tooltip title={field.field_desc} placement="right">
+                    <InfoOutlinedIcon />
+                  </Tooltip>
+                </div>
+                {field.type !== "dropdown" && (
+                  <input
+                    id={field.id}
+                    placeholder={field.label}
+                    type={field.type}
+                    onChange={(e) => handle(e)}
+                    required
+                  ></input>
+                )}
+                {field.type === "dropdown" && (
+                  <select
+                    id={field.id}
+                    disabled={!field.options.length}
+                    placeholder="random"
+                    required
+                    // value={breed}
+                    onChange={(e) => handle(e)}
+                  >
+                    <option value="" />
+                    {field.options.map((option) => (
+                      <option value={option[1]}>{option[0]}</option>
+                    ))}
+                  </select>
+                )}
+              </label>
+            );
+          })}
 
-      <form className="form model lr" onSubmit={(e) => submit(e)}>
-        {model_info.fields.map((field) => {
-          return (
-            <label>
-              <div className="label-text">
-                <p>{field.label}</p>
-                <Tooltip title={field.field_desc} placement="right">
-                  <InfoOutlinedIcon />
-                </Tooltip>
-              </div>
-              {field.type !== "dropdown" && (
-                <input
-                  id={field.id}
-                  placeholder={field.label}
-                  type={field.type}
-                  onChange={(e) => handle(e)}
-                  required
-                ></input>
+          <button className="submit">Submit</button>
+        </form>
+
+        <div className="result">
+          <div className="result">
+            <div>
+              {result === 0 ? (
+                <span>{"The crime is predicted to be Vehicular"}</span>
+              ) : (
+                <span>{"The crime is predicted to be Non Vehicular"}</span>
               )}
-              {field.type === "dropdown" && (
-                <select
-                  id={field.id}
-                  disabled={!field.options.length}
-                  placeholder="random"
-                  required
-                  // value={breed}
-                  onChange={(e) => handle(e)}
-                >
-                  <option value="" />
-                  {field.options.map((option) => (
-                    <option value={option[1]}>{option[0]}</option>
-                  ))}
-                </select>
-              )}
-            </label>
-          );
-        })}
-
-        <button className="submit">Submit</button>
-      </form>
-
-      <div className="result">
-        {result ? (
-          <div>
-            The crime is predicted to be violent{"  "}
-            {result === 1 ? (
-              <strong>{"Non Violent"}</strong>
-            ) : (
-              <strong>{"Violent"}</strong>
-            )}
+            </div>
           </div>
-        ) : (
-          ""
-        )}
+        </div>
       </div>
     </div>
   );

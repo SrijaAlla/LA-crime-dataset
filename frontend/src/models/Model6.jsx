@@ -5,13 +5,12 @@ import { model_fields } from "./model_fields.js";
 import Tooltip from "@mui/material/Tooltip";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
 
-const Model1 = () => {
-  const url = "http://localhost:5000/predict";
+const Model6 = () => {
+  // TODO: change URL
+  const url = "http://localhost:5000/kmeans";
   const [data, setData] = useState({
-    area: "",
-    victage: "",
-    victsex: "",
-    weaponused: "",
+    crime_intensity: "",
+    weapon_rating: "",
   });
   const [result, setResult] = useState("");
 
@@ -20,14 +19,12 @@ const Model1 = () => {
     try {
       axios
         .post(url, {
-          area: data.area,
-          victage: data.victage,
-          victsex: data.victsex,
-          weaponused: data.weaponused,
+          crime_intensity: data.crime_intensity,
+          weapon_rating: data.weapon_rating,
         })
         .then((res) => {
           console.log(res.data);
-          setResult(res.data.prediction);
+          setResult(res.data.details);
         })
         .catch((error) => {
           console.log(error);
@@ -43,7 +40,7 @@ const Model1 = () => {
     setResult("");
     console.log(newdata);
   }
-  const model_info = JSON.parse(JSON.stringify(model_fields["model1"]));
+  const model_info = JSON.parse(JSON.stringify(model_fields["model6"]));
 
   return (
     <div>
@@ -92,18 +89,7 @@ const Model1 = () => {
             <button className="submit">Submit</button>
           </form>
           <div className="result">
-            {result ? (
-              <div>
-                The crime is predicted to be{"  "}
-                {result === 1 ? (
-                  <strong>{"Non Violent"}</strong>
-                ) : (
-                  <strong>{"Violent"}</strong>
-                )}
-              </div>
-            ) : (
-              ""
-            )}
+            {result ? <div>The crime is predicted to be a {result}</div> : ""}
           </div>
         </div>
       </div>
@@ -111,4 +97,4 @@ const Model1 = () => {
   );
 };
 
-export default Model1;
+export default Model6;
