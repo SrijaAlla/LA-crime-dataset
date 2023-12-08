@@ -283,7 +283,7 @@ function Description() {
               <td>crime_type</td>
               <td>
                 This column specifies the type of crime which is divided into
-                violent
+                violent or non-violent.
               </td>
             </tr>
             <tr>

@@ -102,10 +102,18 @@ const Model5 = () => {
         <div className="result">
           <div className="result">
             <div>
-              {result === 0 ? (
-                <span>{"The crime is predicted to be Vehicular"}</span>
+              {result ? (
+                <div>
+                  {""}
+                  {result === 0 ? (
+                    <span>{"The crime is predicted to be Vehicular"}</span>
+                  ) : (
+                    <span>{"The crime is predicted to be Non Vehicular"}</span>
+                  )}
+                  //{" "}
+                </div>
               ) : (
-                <span>{"The crime is predicted to be Non Vehicular"}</span>
+                ""
               )}
             </div>
           </div>
