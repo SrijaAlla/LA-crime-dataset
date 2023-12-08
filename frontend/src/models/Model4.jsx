@@ -35,6 +35,9 @@ const Model4 = () => {
         .then((res) => {
           console.log(res.data);
           setResult(res.data.prediction);
+        })
+        .catch((error) => {
+          console.log(error);
         });
     } catch (e) {
       console.log("Error in API call", e);
@@ -52,51 +55,65 @@ const Model4 = () => {
   return (
     <div>
       <h1 className="main-heading">{model_info.name}</h1>
+      <div className="model-content">
+        <h2 className="model-desc">{model_info.description}</h2>
+        <div className="form-model">
+          <form className="form model lr" onSubmit={(e) => submit(e)}>
+            {model_info.fields.map((field) => {
+              return (
+                <label>
+                  <div className="label-text">
+                    <p>{field.label}</p>
+                    <Tooltip title={field.field_desc} placement="right">
+                      <InfoOutlinedIcon />
+                    </Tooltip>
+                  </div>
+                  {field.type !== "dropdown" && (
+                    <input
+                      id={field.id}
+                      placeholder={field.label}
+                      type={field.type}
+                      onChange={(e) => handle(e)}
+                      required
+                    ></input>
+                  )}
+                  {field.type === "dropdown" && (
+                    <select
+                      id={field.id}
+                      disabled={!field.options.length}
+                      placeholder="random"
+                      required
+                      // value={breed}
+                      onChange={(e) => handle(e)}
+                    >
+                      <option value="" />
+                      {field.options.map((option) => (
+                        <option value={option[1]}>{option[0]}</option>
+                      ))}
+                    </select>
+                  )}
+                </label>
+              );
+            })}
 
-      <h2 className="model-desc">{model_info.description}</h2>
-
-      <form className="form model lr" onSubmit={(e) => submit(e)}>
-        {model_info.fields.map((field) => {
-          return (
-            <label>
-              <div className="label-text">
-                <p>{field.label}</p>
-                <Tooltip title={field.field_desc} placement="right">
-                  <InfoOutlinedIcon />
-                </Tooltip>
+            <button className="submit">Submit</button>
+          </form>
+          <div className="result">
+            {result ? (
+              <div>
+                The crime is predicted to be {"  "}
+                {result === 1 ? (
+                  <strong>{"Vehicular"}</strong>
+                ) : (
+                  <strong>{"Non Vehicular"}</strong>
+                )}
               </div>
-              {field.type !== "dropdown" && (
-                <input
-                  id={field.id}
-                  placeholder={field.label}
-                  type={field.type}
-                  onChange={(e) => handle(e)}
-                  required
-                ></input>
-              )}
-              {field.type === "dropdown" && (
-                <select
-                  id={field.id}
-                  disabled={!field.options.length}
-                  placeholder="rohan"
-                  required
-                  // value={breed}
-                  onChange={(e) => handle(e)}
-                >
-                  <option value="" />
-                  {field.options.map((option) => (
-                    <option value={option[1]}>{option[0]}</option>
-                  ))}
-                </select>
-              )}
-            </label>
-          );
-        })}
-
-        <button className="submit">Submit</button>
-      </form>
-
-      <strong>{result}</strong>
+            ) : (
+              ""
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

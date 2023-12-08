@@ -6,6 +6,7 @@ from sklearn.decomposition import PCA
 import sklearn
 import numpy as np
 import os
+import matplotlib as plt
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
@@ -113,6 +114,8 @@ def knn():
 
     features = [data[f] for f in feature_columns]
 
+
+
     features = np.array(features).reshape(1, -1)
     prediction = knn.predict(features)[0]
     prediction = {"prediction": int(prediction)}
@@ -173,7 +176,48 @@ def predict():
     result = {"prediction": prediction}
 
     return jsonify(result)
+@app.route("/generate_plot", methods=["POST"])
+def generate_plot():
+    print('received')
+    dataset = pickle.load(open('dataset.pkl', 'rb'))
+    # Get data from the POST request
+    request_data = request.get_json()
+    print(request_data)
+    # Check if 'area' is present in the request
+    area = request_data['AREA NAME']
+    print(area)
 
+    # Filter dataset based on the provided area
+    filtered_data = dataset[dataset['AREA NAME'] == area]
+
+    # Generate separate plots for male and female counts
+    plt.figure(figsize=(10, 6))
+
+    # Male count plot
+    plt.subplot(1, 2, 1)
+    filtered_data[filtered_data['Vict Sex'] == 'M']['Vict Sex'].value_counts().plot(kind='bar')
+    plt.title(f'Male Count in {area}')
+    plt.xlabel('Gender')
+    plt.ylabel('Count')
+
+    # Female count plot
+    plt.subplot(1, 2, 2)
+    filtered_data[filtered_data['Vict Sex'] == 'F']['Vict Sex'].value_counts().plot(kind='bar')
+    plt.title(f'Female Count in {area}')
+    plt.xlabel('Gender')
+    plt.ylabel('Count')
+
+    # Save the plot to a BytesIO object
+    image_stream = BytesIO()
+    plt.tight_layout()
+    plt.savefig(image_stream, format='png')
+    plt.close()
+    image_base64 = base64.b64encode(image_stream.getvalue()).decode('utf-8')
+    return jsonify({'image': image_base64}), 200
+    # # Return the plot as a base64-encoded string
+    # #return jsonify({'image': image_stream.getvalue().decode('base64')}), 200
+    # output = {"prediction":"repdiction"}
+    # return jsonify(output)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

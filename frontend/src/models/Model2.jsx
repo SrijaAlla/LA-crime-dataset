@@ -31,6 +31,9 @@ const Model2 = () => {
         .then((res) => {
           console.log(res.data);
           setResult(res.data.prediction);
+        })
+        .catch((error) => {
+          console.log(error);
         });
     } catch (e) {
       console.log("Error in API call", e);
@@ -91,8 +94,20 @@ const Model2 = () => {
 
             <button className="submit">Submit</button>
           </form>
-
-          <strong>{result}</strong>
+          <div className="result">
+            {result ? (
+              <div>
+                The crime is predicted to be violent{"  "}
+                {result === 1 ? (
+                  <strong>{"Non Violent"}</strong>
+                ) : (
+                  <strong>{"Violent"}</strong>
+                )}
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
     </div>

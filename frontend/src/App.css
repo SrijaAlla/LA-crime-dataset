@@ -83,7 +83,7 @@ input[type="radio"] {
   width: 75%;
   height: 100%;
   margin-left: 25%;
-  padding: 50px 100px;
+  padding: 50px 10px;
 }
 
 .main-heading {
@@ -112,11 +112,10 @@ input[type="radio"] {
 }
 
 .sub-heading {
-  display: flex;
+  /* display: flex; */
   font-size: 20px;
   padding: 10px 0px 10px 0px;
 }
-
 
 /* EDA page */
 .eda {
@@ -135,4 +134,13 @@ input[type="radio"] {
 .eda .bubble-map iframe {
   width: 100%;
   height: 100%;
+}
+.form-model {
+  /* display: flex; */
+  width: 100%;
+  flex-direction: row;
+}
+
+.form-model .result {
+  padding: 20px 10px;
 }
