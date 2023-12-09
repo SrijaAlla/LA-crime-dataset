@@ -187,10 +187,14 @@ const model_fields = {
         label: 'Weapon Used Code',
       },
       {
-        type: 'text',
+        type: 'dropdown',
         field_desc: 'Part 1 index crimes or Part 2 index crimes',
         id: 'part12',
         label: 'Part 1-2',
+        options: [
+          ['Part 1', 0],
+          ['Part 2', 1],
+        ],
       },
       {
         type: 'text',
