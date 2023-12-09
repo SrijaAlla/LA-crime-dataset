@@ -97,12 +97,15 @@ const Model3 = () => {
           <div className="result">
             {result ? (
               <div>
-                The crime is predicted to be violent{"  "}
-                {result === 1 ? (
-                  <strong>{"Non Violent"}</strong>
-                ) : (
-                  <strong>{"Violent"}</strong>
-                )}
+                <h2>Prediction</h2>
+                <span>
+                  The crime belongs to{"  "}
+                  {result === 1 ? (
+                    <strong>{"Part 1 Index Crimes"}</strong>
+                  ) : (
+                    <strong>{"Part 2 Index Crimes"}</strong>
+                  )}
+                </span>
               </div>
             ) : (
               ""

@@ -180,51 +180,6 @@ def predict():
 
     return jsonify(result)
 
-@app.route('/generate_plot', methods=['POST'])
-def generate_plot():
-    # Get data from the POST request
-    request_data = request.get_json()
-    # Load the dataset from the pickle file
-    with open('dataset.pkl', 'rb') as file:
-        loaded_dataset = pickle.load(file)
-
-    # Convert the loaded dataset to a DataFrame
-    loaded_df = pd.DataFrame(loaded_dataset)
-    # Check if 'area' is present in the request
-    if 'area' not in request_data:
-        return jsonify({'error': 'Missing area parameter'}), 400
-
-    area = request_data['area']
-
-    # Filter dataset based on the provided area
-    filtered_data = dataset[dataset['Area'] == area]
-
-    # Generate separate plots for male and female counts
-    plt.figure(figsize=(10, 6))
-
-    # Male count plot
-    plt.subplot(1, 2, 1)
-    filtered_data[filtered_data['Victim_Sex'] == 'Male']['Victim_Sex'].value_counts().plot(kind='bar')
-    plt.title(f'Male Count in {area}')
-    plt.xlabel('Gender')
-    plt.ylabel('Count')
-
-    # Female count plot
-    plt.subplot(1, 2, 2)
-    filtered_data[filtered_data['Victim_Sex'] == 'Female']['Victim_Sex'].value_counts().plot(kind='bar')
-    plt.title(f'Female Count in {area}')
-    plt.xlabel('Gender')
-    plt.ylabel('Count')
-
-    # Save the plot to a BytesIO object
-    image_stream = BytesIO()
-    plt.tight_layout()
-    plt.savefig(image_stream, format='png')
-    plt.close()
-
-    # Return the plot as a base64-encoded string
-    return jsonify({'image': image_stream.getvalue().decode('base64')}), 200
-
 @app.route('/kmeans', methods=['POST'])
 def kmeans():
     # Get input data from the request

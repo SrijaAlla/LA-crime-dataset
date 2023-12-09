@@ -99,49 +99,53 @@ function Description() {
               </td>
             </tr>
             <tr>
-              <td>Part I Crimes (Index Crimes)</td>
-              <td>
-                <ul>
-                  <li>
-                    Part I crimes are considered more serious and are often
-                    referred to as "index crimes."
-                  </li>
-                  <li>
-                    These crimes include major violent offenses and high-value
-                    property crimes.
-                  </li>
-                  <li>
-                    Examples of Part I crimes typically include murder, rape,
-                    robbery, aggravated assault, burglary, larceny-theft, and
-                    motor vehicle theft.
-                  </li>
-                  <li>
-                    These crimes are closely tracked and reported in national
-                    crime statistics, such as the Uniform Crime Reporting (UCR)
-                    program by the FBI.
-                  </li>
-                </ul>
-              </td>
-            </tr>
-            <tr>
-              <td>Part II Crimes (Non-Index Crimes)</td>
-              <td>
-                <ul>
-                  <li>
-                    Part II crimes are considered less serious and encompass a
-                    wider range of offenses.
-                  </li>
-                  <li>
-                    These crimes include less serious property crimes, simple
-                    assaults, fraud, vandalism, and other offenses that may not
-                    be as severe as Part I crimes.
-                  </li>
-                  <li>
-                    Part II crimes are reported separately from Part I crimes in
-                    crime statistics.
-                  </li>
-                </ul>
-              </td>
+              <td>Part 1-2</td>
+              Part I Crimes (Index Crimes)
+              {/* </td> */}
+              {/* <td> */}
+              <ul>
+                <li>
+                  Part I crimes are considered more serious and are often
+                  referred to as "index crimes."
+                </li>
+                <li>
+                  These crimes include major violent offenses and high-value
+                  property crimes.
+                </li>
+                <li>
+                  Examples of Part I crimes typically include murder, rape,
+                  robbery, aggravated assault, burglary, larceny-theft, and
+                  motor vehicle theft.
+                </li>
+                <li>
+                  These crimes are closely tracked and reported in national
+                  crime statistics, such as the Uniform Crime Reporting (UCR)
+                  program by the FBI.
+                </li>
+              </ul>
+              {/* </td> */}
+              {/* </tr>
+            <tr> */}
+              {/* <td> */}
+              Part II Crimes (Non-Index Crimes)
+              {/* </td> */}
+              {/* <td> */}
+              <ul>
+                <li>
+                  Part II crimes are considered less serious and encompass a
+                  wider range of offenses.
+                </li>
+                <li>
+                  These crimes include less serious property crimes, simple
+                  assaults, fraud, vandalism, and other offenses that may not be
+                  as severe as Part I crimes.
+                </li>
+                <li>
+                  Part II crimes are reported separately from Part I crimes in
+                  crime statistics.
+                </li>
+              </ul>
+              {/* </td> */}
             </tr>
 
             <tr>

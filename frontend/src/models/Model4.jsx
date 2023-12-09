@@ -13,8 +13,8 @@ const Model4 = () => {
     month: "",
     lat: "",
     lon: "",
-    rptdn: "",
     part12: "",
+    rptdn: "",
     victage: "",
   });
   const [result, setResult] = useState("");
@@ -34,6 +34,7 @@ const Model4 = () => {
         })
         .then((res) => {
           console.log(res.data);
+          console.log(result);
           setResult(res.data.prediction);
         })
         .catch((error) => {
@@ -100,14 +101,28 @@ const Model4 = () => {
           </form>
           <div className="result">
             <div>
-              {result === 0 ? (
-                <span>{"The crime is predicted to be Vehicular"}</span>
-              ) : (
-                <span>{"The crime is predicted to be Non Vehicular"}</span>
+              {result === 0 && (
+                <div>
+                  <h2>Prediction</h2>
+                  <span>
+                    The crime is predicted to be{"  "}
+                    <strong>{"Non Vehicular"}</strong>
+                  </span>
+                </div>
               )}
+
+              {result === 1 && (
+                <div>
+                  <h2>Prediction</h2>
+                  <span>
+                    The crime is predicted to be{"  "}
+                    <strong>{"Vehicular"}</strong>
+                  </span>
+                </div>
+              )}
+              {result === "" && <div></div>}
             </div>
           </div>
-          {/* <strong>{result}</strong> */}
         </div>
       </div>
     </div>

@@ -89,7 +89,16 @@ const Model6 = () => {
             <button className="submit">Submit</button>
           </form>
           <div className="result">
-            {result ? <div>The crime is predicted to be a {result}</div> : ""}
+            {result ? (
+              <div>
+                <h2>Prediction</h2>
+                <span>
+                  The crime is predicted to be a <strong>{result}</strong>
+                </span>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>

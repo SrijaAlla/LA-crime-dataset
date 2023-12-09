@@ -9,7 +9,7 @@ const model_fields = {
         field_desc:
           'The 21 Geographic Areas or Patrol Divisions are also given a name designation that references a landmark or the surrounding community that it is responsible for. For example, 77th Street Division is located at the intersection of South Broadway and 77th Street, serving neighborhoods in South Los Angeles.',
         id: 'area',
-        label: 'Area',
+        label: 'Area Code',
       },
       {
         type: 'number',
@@ -45,7 +45,7 @@ const model_fields = {
         field_desc:
           'The 21 Geographic Areas or Patrol Divisions are also given a name designation that references a landmark or the surrounding community that it is responsible for. For example, 77th Street Division is located at the intersection of South Broadway and 77th Street, serving neighborhoods in South Los Angeles.',
         id: 'area',
-        label: 'Area',
+        label: 'Area Code',
       },
       {
         type: 'text',
@@ -171,7 +171,7 @@ const model_fields = {
         field_desc:
           'The 21 Geographic Areas or Patrol Divisions are also given a name designation that references a landmark or the surrounding community that it is responsible for. For example, 77th Street Division is located at the intersection of South Broadway and 77th Street, serving neighborhoods in South Los Angeles.',
         id: 'area',
-        label: 'AREA',
+        label: 'Area code',
       },
       {
         type: 'text',

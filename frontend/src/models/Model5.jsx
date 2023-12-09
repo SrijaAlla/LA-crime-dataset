@@ -102,19 +102,30 @@ const Model5 = () => {
         <div className="result">
           <div className="result">
             <div>
-              {result ? (
-                <div>
-                  {""}
-                  {result === 0 ? (
-                    <span>{"The crime is predicted to be Vehicular"}</span>
-                  ) : (
-                    <span>{"The crime is predicted to be Non Vehicular"}</span>
-                  )}
-                  //{" "}
-                </div>
-              ) : (
-                ""
-              )}
+              {/* {result ? ( */}
+              <div>
+                {result === 1 && (
+                  <div>
+                    <h2>Prediction</h2>
+                    <span>
+                      The crime is predicted to involve{"  "}
+                      <strong>{"Theft"}</strong>
+                    </span>
+                  </div>
+                )}
+
+                {result === 0 && (
+                  <div>
+                    <h2>Prediction</h2>
+                    <span>
+                      The crime is predicted to be{"  "}
+                      <strong>{"Not "}</strong>
+                      involve <strong>{"Theft"}</strong>
+                    </span>
+                  </div>
+                )}
+                {result === "" && <div></div>}
+              </div>
             </div>
           </div>
         </div>
