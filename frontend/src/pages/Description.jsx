@@ -261,7 +261,7 @@ function Description() {
           </thead>
           <tbody>
             <tr>
-              <td>Weapons</td>
+              <td>Weapon Rating</td>
               <td>
                 This column provides descriptions of various weapons. An
                 accompanying column 'weapon rating' assigns a severity rating
@@ -270,7 +270,7 @@ function Description() {
               </td>
             </tr>
             <tr>
-              <td>Crimes</td>
+              <td>Crime Intensity</td>
               <td>
                 This column gives the crime rating of a district based on the
                 number of crimes where the intesity of the crime is rated on a

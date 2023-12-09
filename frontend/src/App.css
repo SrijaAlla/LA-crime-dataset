@@ -202,9 +202,16 @@ input[type="radio"] {
   padding: 40px 0px 20px 0px;
 }
 
+.image img {
+  transition: transform 0.2s;
+}
+.image img:hover {
+  transform: scale(1.09);
+}
+
 .image span {
   align-items: center;
-  padding: 20px 0px 20px 0px;
+  padding: 20px 0px 50px 0px;
 }
 
 /* .eda-images .image img {

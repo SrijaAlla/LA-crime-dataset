@@ -60,9 +60,18 @@ function EDA() {
           <img src={image3} alt="missing"></img>
         </div>
         <div className="image">
+          <span>
+            The female victim's pie chart, counts crime codes, calculates
+            percentages, and plots a pie chart. Battery simple assault and
+            intimate partner assault are major crimes against females.
+          </span>
           <img src={image4} alt="missing"></img>
         </div>
         <div className="image">
+          <span>
+            Pie chart for males. Simple Assault/battery and Aggravated Assault
+            are the most frequent crimes against males.
+          </span>
           <img src={image5} alt="missing"></img>
         </div>
         <div className="image">

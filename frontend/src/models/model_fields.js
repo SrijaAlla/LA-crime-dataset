@@ -148,10 +148,14 @@ const model_fields = {
         label: 'Reported District Number',
       },
       {
-        type: 'text',
+        type: 'dropdown',
         field_desc: 'Part 1 index crimes or Part 2 index crimes',
         id: 'part12',
         label: 'Part 1-2',
+        options: [
+          ['Part 1', 0],
+          ['Part 2', 1],
+        ],
       },
       {
         type: 'text',
@@ -197,10 +201,14 @@ const model_fields = {
         ],
       },
       {
-        type: 'text',
+        type: 'dropdown',
         field_desc: 'Type of Crime',
         id: 'crimetype',
         label: 'Crime Type',
+        options: [
+          ['Violent', 0],
+          ['Non-Violent', 1],
+        ],
       },
       {
         type: 'text',
@@ -224,14 +232,14 @@ const model_fields = {
       {
         type: 'text',
         field_desc:
-          'The 21 Geographic Areas or Patrol Divisions are also given a name designation that references a landmark or the surrounding community that it is responsible for. For example, 77th Street Division is located at the intersection of South Broadway and 77th Street, serving neighborhoods in South Los Angeles.',
+          'This column gives the crime rating of a district based on the number of crimes where the intesity of the crime is rated on a scale of 1-10 manually.',
         id: 'crime_intensity',
         label: 'Crime Intensity',
       },
       {
         type: 'text',
         field_desc:
-          'A code representing the type of location where the crime occurred',
+          'This column provides descriptions of various weapons. An accompanying column weapon rating assigns a severity rating from 1 to 10 for each weapon based on its perceived danger level',
         id: 'weapon_rating',
         label: 'Weapon Rating',
       },

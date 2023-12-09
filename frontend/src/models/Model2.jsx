@@ -95,18 +95,19 @@ const Model2 = () => {
             <button className="submit">Submit</button>
           </form>
           <div className="result">
-            {result ? (
+            {result === 0 && (
               <div>
                 <h2>Prediction</h2>
                 The crime is predicted to be{"  "}
-                {result === "nonviolent" ? (
-                  <strong>{"Non Violent"}</strong>
-                ) : (
-                  <strong>{"Violent"}</strong>
-                )}
+                <strong>{"Non Violent"}</strong>
               </div>
-            ) : (
-              ""
+            )}
+            {result === 1 && (
+              <div>
+                <h2>Prediction</h2>
+                The crime is predicted to be{"  "}
+                <strong>{"Violent"}</strong>
+              </div>
             )}
           </div>
         </div>
